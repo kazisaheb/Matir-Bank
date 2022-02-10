@@ -6,6 +6,6 @@ loginBtn.addEventListener('click', function () {
   if (userEmail.value == 'matir@bank.com' && userPassword.value == 'kazi') {
     window.location.href = 'ac.html'
   } else {
-    alert('ভুলবাল ইনপুট')
+    alert('সঠিক ইনপুট দিন')
   }
 })

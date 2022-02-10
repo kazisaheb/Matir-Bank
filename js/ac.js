@@ -13,7 +13,9 @@ const withdrawInput = document.getElementById('withdraw_input');
 const withdrawBtn = document.getElementById('withdraw_btn');
 
 depositBtn.addEventListener('click', function () {
-  if (depositInput.value == '' || typeof depositInput.value != 'number') { alert('ভুলবাল ইনপুট') } else {
+  if (depositInput.value == '' || depositInput.value < 0) {
+    alert('সঠিক ইনপুট দিন')
+  } else {
     todayDeposit.innerText = parseFloat(todayDeposit.innerText) + parseFloat(depositInput.value);
     totalDeposit.innerText = parseFloat(totalDeposit.innerText) + parseFloat(depositInput.value);
     totalBalance.innerText = parseFloat(totalBalance.innerText) + parseFloat(depositInput.value);
@@ -22,8 +24,8 @@ depositBtn.addEventListener('click', function () {
 })
 
 withdrawBtn.addEventListener('click', function () {
-  if (withdrawInput.value == '' || typeof withdrawInput.value != 'number' || totalBalance.innerText < withdrawInput.value) {
-    alert('ভুলবাল ইনপুট')
+  if (withdrawInput.value == '' || withdrawInput.value < 0 || totalBalance.innerText < withdrawInput.value) {
+    alert('সঠিক ইনপুট দিন')
   } else {
     todayWithdraw.innerText = parseFloat(todayWithdraw.innerText) + parseFloat(withdrawInput.value);
     totalBalance.innerText = totalBalance.innerText - withdrawInput.value;
