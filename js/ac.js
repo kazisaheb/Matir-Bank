@@ -16,20 +16,22 @@ depositBtn.addEventListener('click', function () {
   if (depositInput.value == '' || depositInput.value <= 0) {
     alert('সঠিক ইনপুট দিন')
   } else {
-    todayDeposit.innerText = parseFloat(todayDeposit.innerText) + parseFloat(depositInput.value);
-    totalDeposit.innerText = parseFloat(totalDeposit.innerText) + parseFloat(depositInput.value);
-    totalBalance.innerText = parseFloat(totalBalance.innerText) + parseFloat(depositInput.value);
+    todayDeposit.innerText = +todayDeposit.innerText + +depositInput.value;
+    totalDeposit.innerText = +totalDeposit.innerText + +depositInput.value;
+    totalBalance.innerText = +totalBalance.innerText + +depositInput.value;
     depositInput.value = '';
   }
 })
 
 withdrawBtn.addEventListener('click', function () {
-  if (withdrawInput.value == '' || withdrawInput.value <= 0 || parseFloat(totalBalance.innerText) < parseFloat(withdrawInput.value)) {
+  if (withdrawInput.value == '' || withdrawInput.value <= 0) {
     alert('সঠিক ইনপুট দিন')
+  } else if (+totalBalance.innerText < +withdrawInput.value) {
+    alert('পর্যাপ্ত ব্যলান্স নেই')
   } else {
-    todayWithdraw.innerText = parseFloat(todayWithdraw.innerText) + parseFloat(withdrawInput.value);
-    totalBalance.innerText = totalBalance.innerText - withdrawInput.value;
-    totalWithdraw.innerText = parseFloat(totalWithdraw.innerText) + parseFloat(withdrawInput.value);
+    todayWithdraw.innerText = +todayWithdraw.innerText + +withdrawInput.value;
+    totalWithdraw.innerText = +totalWithdraw.innerText + +withdrawInput.value;
+    totalBalance.innerText = +totalBalance.innerText - +withdrawInput.value;
     withdrawInput.value = '';
   }
 })
