@@ -24,7 +24,7 @@ depositBtn.addEventListener('click', function () {
 })
 
 withdrawBtn.addEventListener('click', function () {
-  if (withdrawInput.value == '' || withdrawInput.value <= 0 || totalBalance.innerText < withdrawInput.value) {
+  if (withdrawInput.value == '' || withdrawInput.value <= 0 || parseFloat(totalBalance.innerText) < parseFloat(withdrawInput.value)) {
     alert('সঠিক ইনপুট দিন')
   } else {
     todayWithdraw.innerText = parseFloat(todayWithdraw.innerText) + parseFloat(withdrawInput.value);
